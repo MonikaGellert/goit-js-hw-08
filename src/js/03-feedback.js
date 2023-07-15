@@ -15,7 +15,7 @@ statusCheckStorage();
 function onFormSubmit(event) {
   event.preventDefault();
 
-  const saveFormData = localStorage.getItem(STORAGE_KEY);
+  const DataSaveForm = localStorage.getItem(STORAGE_KEY);
 
   if (formInputData.value === '' || formTextarea.value === '') {
     alert('You need to fill in all fields of the form');
@@ -32,7 +32,7 @@ function onFormSubmit(event) {
 }
 
 function onFormInput(a) {
-  const saveFormData = localStorage.getItem(STORAGE_KEY);
+  const DataSaveForm = localStorage.getItem(STORAGE_KEY);
   if (saveFormDataaveFormData) {
     feedbackFormState = JSON.parse(localStorage.getItem(STORAGE_KEY));
   }
