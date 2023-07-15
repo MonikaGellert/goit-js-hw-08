@@ -1,4 +1,4 @@
-const throttle = require('lodash.throttle');
+import throttle from '/lodash.throttle';
 
 const formData = document.querySelector('.feedback-form');
 const formInputData = document.querySelector('form input');
@@ -12,10 +12,10 @@ formData.addEventListener('input', throttle(onFormInput, 500));
 
 statusCheckStorage();
 
-function onFormSubmit(evt) {
-  evt.preventDefault();
+function onFormSubmit(event) {
+  event.preventDefault();
 
-  const SaveFormData = localStorage.getItem(STORAGE_KEY);
+  const saveFormData = localStorage.getItem(STORAGE_KEY);
 
   if (formInputData.value === '' || formTextarea.value === '') {
     alert('You need to fill in all fields of the form');
@@ -32,8 +32,8 @@ function onFormSubmit(evt) {
 }
 
 function onFormInput(a) {
-  const SaveFormData = localStorage.getItem(STORAGE_KEY);
-  if (saveFormData) {
+  const saveFormData = localStorage.getItem(STORAGE_KEY);
+  if (saveFormDataaveFormData) {
     feedbackFormState = JSON.parse(localStorage.getItem(STORAGE_KEY));
   }
   feedbackFormState[a.target.name] = a.target.value;
