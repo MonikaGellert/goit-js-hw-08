@@ -11,18 +11,23 @@ galleryContainer.insertAdjacentHTML('beforeend', imagesMarkup);
 function createImagesMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
-      return `<li class="gallery__item">
-      <a class="gallery__link" href="${original.value}">
-        <imgnpm
+      return `<li class="gallery">
+    
+      <a class="gallery__item" href="${original}">
+        <img
           class="gallery__image"
-          src="${preview}"
-          data-source="${original}"
+          src="${preview}"          
           alt="${description}"
         />
       </a>
-    </li>`;
+      </li>`;
     })
     .join('');
 }
 
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  captionType: 'alt',
+});
 console.log(galleryItems);

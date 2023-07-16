@@ -31,12 +31,21 @@ function formElHandler(event) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(savedString));
 }
 
+function setLocalData(data) {
+  try {
+    localStorage.setItem(keyFormLocalData, JSON.stringify(data));
+  } catch (error) {
+    console.log('Błąd podczas zapisu');
+    console.log(error);
+  }
+}
+
 function formSubmit(event) {
   event.preventDefault();
   const elements = event.target.elements;
 
   if (!elements.email.value || !elements.message.value) {
-    return alert('Заповни всі поля форми перш ніж надсилати! Негайно!');
+    return alert('Brak danych w lokalnym magazynie!');
   }
 
   console.log({
@@ -45,6 +54,6 @@ function formSubmit(event) {
   });
 
   event.target.reset();
-  // console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+
   localStorage.clear(STORAGE_KEY);
 }
