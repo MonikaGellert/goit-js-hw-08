@@ -57,7 +57,7 @@ function formSubmit(event) {
     localStorage.removeItem(STORAGE_KEY);
   }
 
-  // event.target.reset();
+  event.target.reset();
 
   // localStorage.clear(STORAGE_KEY);
 }
