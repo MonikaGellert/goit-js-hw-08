@@ -53,7 +53,11 @@ function formSubmit(event) {
     message: elements.message.value,
   });
 
-  event.target.reset();
+  function removeLocalStorage(STORAGE_KEY) {
+    localStorage.removeItem(STORAGE_KEY);
+  }
 
-  localStorage.clear(STORAGE_KEY);
+  // event.target.reset();
+
+  // localStorage.clear(STORAGE_KEY);
 }
